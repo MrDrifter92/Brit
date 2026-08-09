@@ -1,86 +1,100 @@
-<!-- @dsCard group="Packaging" viewport="1280x820" name="Product card range" subtitle="The three-panel info card, recreated from the printed artwork" -->
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>Britanical Blends — Packaging</title>
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Britanical Blends — Design System</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-body{margin:0;background:var(--surface-page);min-height:100vh}
-.page{max-width:1280px;margin:0 auto;padding:44px 40px 72px}
-.head{display:grid;justify-items:center;gap:14px;margin-bottom:14px}
-.tabs{display:flex;gap:8px;justify-content:center;margin:30px 0 34px;flex-wrap:wrap}
-.detail{display:grid;grid-template-columns:auto auto;gap:56px;justify-content:center;align-items:start;margin-top:8px}
-.aside{display:grid;gap:22px;max-width:330px;align-content:start;padding-top:8px}
-.aside h4{margin:0;font:600 12px/1.4 var(--font-body);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-900)}
-.aside p{margin:0;font:var(--type-body-sm);color:var(--ink-700)}
-.note{font:var(--weight-regular) 11px/1.6 var(--font-sans);letter-spacing:.04em;color:var(--ink-400);text-align:center;margin-top:56px}
+body{margin:0;background:var(--surface-page);color:var(--text-body);min-height:100vh}
+.page{max-width:920px;margin:0 auto;padding:72px 40px 96px}
+header{text-align:center;margin-bottom:64px}
+.wordmark{font:var(--type-display);color:var(--text-heading);margin:0}
+.strapline{font:var(--type-strapline);letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:10px}
+.rule{width:64px;height:1px;background:var(--rule-strong);margin:28px auto 0;border:0}
+h2.section-label{font:var(--type-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:56px}
+a.card{display:block;text-decoration:none;color:inherit;background:var(--surface-card);border:1px solid var(--border-panel);border-radius:var(--radius-lg,10px);padding:22px 24px;transition:transform .15s ease,box-shadow .15s ease}
+a.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card,0 6px 18px rgba(0,0,0,.08))}
+a.card h3{font:var(--type-heading);margin:0 0 6px;color:var(--text-heading)}
+a.card p{font:var(--type-body-sm);margin:0;color:var(--text-muted)}
+.note{font:var(--type-caption);color:var(--text-faint);text-align:center;margin-top:48px}
+.note a{color:var(--text-link)}
 </style>
 </head>
 <body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script src="../../_ds_bundle.js"></script>
-<script src="blends.js"></script>
-<script type="text/babel" src="ProductCard.jsx"></script>
-<script type="text/babel" src="JarLabel.jsx"></script>
-<script type="text/babel" src="CardShelf.jsx"></script>
-<script type="text/babel" data-presets="react">
-const BBi = window.BritanicalBlendsDesignSystem_707ab1 || {};
+<div class="page">
+<header>
+<p class="wordmark">Britanical Blends</p>
+<p class="strapline">Design system</p>
+<hr class="rule">
+</header>
 
-function App() {
-  const [view, setView] = React.useState('range');
-  const [sel, setSel] = React.useState('sunset');
-  const blend = BB_BLENDS.find((b) => b.key === sel);
-  return (
-    <div className="page">
-      <header className="head">
-        <BBi.Wordmark size="xl" color="var(--bark-700)" />
-        <BBi.Strapline size={12} color="var(--ink-500)" />
-        <BBi.Fleuron width={260} glyphColor="var(--bark-600)" style={{ marginTop: 4 }} />
-      </header>
+<section>
+<h2 class="section-label">Overview</h2>
+<div class="grid">
+<a class="card" href="export/design-system.html">
+<h3>Full design system</h3>
+<p>Colour, type, space &amp; form, components, packaging, marketing and voice — one page, start here.</p>
+</a>
+</div>
+</section>
 
-      <nav className="tabs">
-        <BBi.Button size="sm" variant={view === 'range' ? 'primary' : 'secondary'} onClick={() => setView('range')}>The range</BBi.Button>
-        {BB_BLENDS.map((b) => (
-          <BBi.Button key={b.key} size="sm" variant={view === 'detail' && sel === b.key ? 'primary' : 'secondary'}
-            onClick={() => { setSel(b.key); setView('detail'); }}>{b.name.join(' ')}</BBi.Button>
-        ))}
-      </nav>
+<section>
+<h2 class="section-label">UI kits</h2>
+<div class="grid">
+<a class="card" href="ui_kits/packaging/index.html">
+<h3>Packaging kit</h3>
+<p>The printed product card and jar label, recreated per blend.</p>
+</a>
+<a class="card" href="ui_kits/marketing/index.html">
+<h3>Marketing kit</h3>
+<p>Lifestyle banner, range strip and roundel sign-off.</p>
+</a>
+</div>
+</section>
 
-      {view === 'range' ? (
-        <CardShelf blends={BB_BLENDS} selected={sel} cardWidth={330}
-          onSelect={(k) => { setSel(k); setView('detail'); }} />
-      ) : (
-        <div className="detail" data-accent={blend.accent}>
-          <ProductCard blend={blend} width={420} />
-          <div className="aside">
-            <JarLabel blend={blend} width={280} />
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              <BBi.Badge tone="soft">Loose leaf</BBi.Badge>
-              <BBi.Badge tone="outline">50g</BBi.Badge>
-              {blend.key === 'sunset' && <BBi.Badge tone="outline">Caffeine free</BBi.Badge>}
-            </div>
-            <div style={{ display: 'grid', gap: 8 }}>
-              <h4>Jar label</h4>
-              <p>The 260&ndash;280px jar label carries the same lockup as the info card at a quarter of the height: wordmark, fleuron, product name, hanging-herb motif, ingredient run.</p>
-            </div>
-            <div style={{ display: 'flex', gap: 10 }}>
-              <BBi.Button variant="accent">Add to basket</BBi.Button>
-              <BBi.Button variant="ghost" onClick={() => setView('range')}>Back to range</BBi.Button>
-            </div>
-          </div>
-        </div>
-      )}
+<section>
+<h2 class="section-label">Components</h2>
+<div class="grid">
+<a class="card" href="components/brand/brand.card.html">
+<h3>Brand</h3>
+<p>Wordmark, Logomark, Fleuron, OrnateFrame, Strapline.</p>
+</a>
+<a class="card" href="components/core/core.card.html">
+<h3>Core</h3>
+<p>Button, Badge, Card, Rule, SectionLabel, ScriptQuote.</p>
+</a>
+<a class="card" href="components/product/product.card.html">
+<h3>Product</h3>
+<p>BlendPanel, BrewGuide, IngredientLine, BenefitList, AccentFooter.</p>
+</a>
+</div>
+</section>
 
-      <p className="note">Recreated from the printed artwork supplied in <code>uploads/</code>. Botanical margin engravings and the hanging-herb motif are cropped from that artwork — they are not redrawn.</p>
-    </div>
-  );
-}
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-</script>
+<section>
+<h2 class="section-label">Guidelines</h2>
+<div class="grid">
+<a class="card" href="guidelines/colors-semantic.html">
+<h3>Colour</h3>
+<p>Paper, ink, bark, wine, moss, wheat — plus semantic aliases.</p>
+</a>
+<a class="card" href="guidelines/type-scale.html">
+<h3>Type</h3>
+<p>Display, heading, body and script scales across the range.</p>
+</a>
+<a class="card" href="guidelines/spacing-scale.html">
+<h3>Space &amp; form</h3>
+<p>Spacing scale, radius, elevation and motion.</p>
+</a>
+<a class="card" href="guidelines/brand-ornament.html">
+<h3>Brand marks</h3>
+<p>Ornament, texture, motion and radius in use.</p>
+</a>
+</div>
+</section>
+
+<p class="note">Source, components and export bundle live in this repository — see <a href="readme.md">readme.md</a>.</p>
+</div>
 </body>
 </html>

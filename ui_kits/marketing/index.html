@@ -1,0 +1,71 @@
+<!-- @dsCard group="Marketing" viewport="1280x760" name="Brand banner & range" subtitle="Lifestyle lockup over warm photography, then the three blends" -->
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Britanical Blends — Brand surfaces</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+body{margin:0;background:var(--surface-page)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px 80px}
+.band{margin:0 0 64px}
+.section{margin-top:72px}
+.photo{width:100%;height:300px;object-fit:cover;display:block}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-top:72px}
+.split p{font:var(--type-body);color:var(--ink-700);max-width:46ch;margin:0}
+.note{font:var(--weight-regular) 11px/1.6 var(--font-sans);letter-spacing:.04em;color:var(--ink-400);text-align:center;margin-top:64px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../packaging/blends.js"></script>
+<script type="text/babel" src="HeroBanner.jsx"></script>
+<script type="text/babel" src="RangeStrip.jsx"></script>
+<script type="text/babel" data-presets="react">
+const BBm = window.BritanicalBlendsDesignSystem_707ab1 || {};
+
+function App() {
+  return (
+    <>
+      <div className="band">
+        <HeroBanner image="../../assets/photo-table-interior.jpg" height={430}>
+          <BBm.Button variant="secondary" style={{ color: 'var(--paper-50)', borderColor: 'color-mix(in srgb, var(--paper-50) 55%, transparent)', marginTop: 12 }}>Shop the range</BBm.Button>
+        </HeroBanner>
+      </div>
+
+      <div className="wrap">
+        <RangeStrip blends={BB_BLENDS} />
+
+        <div className="split">
+          <img className="photo" src="../../assets/photo-lineup-cards.jpg" alt="Three jars of Britanical Blends loose-leaf tea on a wooden table, with the printed cards standing behind them" style={{ height: 340 }} />
+          <div style={{ display: 'grid', gap: 18, justifyItems: 'start' }}>
+            <BBm.SectionLabel align="left" size={12}>About this blend</BBm.SectionLabel>
+            <p>A vibrant, exotic blend inspired by golden evenings. Beautifully floral and refreshing, it uplifts the senses and transports you to a state of calm clarity and joy.</p>
+            <BBm.Fleuron width={200} glyphColor="var(--bark-600)" />
+            <div data-accent="sunset">
+              <BBm.ScriptQuote lines={['Breathe in beauty.', 'Sip in the sunset.']} align="left" size={30} color="var(--wine-700)" />
+            </div>
+            <BBm.Button variant="accent" data-accent="sunset" style={{ marginTop: 6 }}>Add to basket</BBm.Button>
+          </div>
+        </div>
+
+        <section className="section" style={{ display: 'grid', justifyItems: 'center', gap: 22 }}>
+          <BBm.Logomark size={132} src="../../assets/logo-roundel.png" />
+          <BBm.Strapline size={13} color="var(--ink-500)" />
+          <BBm.Fleuron width={240} glyphColor="var(--bark-600)" />
+        </section>
+
+        <p className="note">Photography, wordmark lockup and all body copy are taken from the supplied brand material. Section headings reuse the packaging's own vocabulary; no new marketing copy was written.</p>
+      </div>
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
