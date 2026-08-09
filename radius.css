@@ -1,0 +1,16 @@
+:root{
+--radius-none:0;
+--radius-xs:2px;
+--radius-sm:3px;
+--radius-md:6px;
+--radius-lg:10px;
+--radius-panel:14px;
+--radius-jar:18px;
+--radius-pill:999px;
+--radius-round:50%;
+
+--border-hair:1px;
+--border-rule:1.5px;
+--border-frame:2px;
+--border-double-gap:4px;
+}

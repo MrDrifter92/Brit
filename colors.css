@@ -1,0 +1,52 @@
+:root{
+/* ---- Paper / cream ---------------------------------------------------- */
+--paper-50:#FDFAF3;--paper-100:#F8F0E0;--paper-200:#F2E9D6;--paper-300:#E8E0C8;--paper-400:#DED3B8;--paper-500:#CDBF9E;
+--blush-100:#F8E8D0;
+/* ---- Ink -------------------------------------------------------------- */
+--ink-900:#1E1A14;--ink-800:#2A2118;--ink-700:#3D3025;--ink-600:#54452F;--ink-500:#6B5A46;--ink-400:#8A7A64;--ink-300:#B3A48C;--ink-200:#D2C6AF;
+/* ---- Bark (logo brown, ornament, hairlines) --------------------------- */
+--bark-800:#4A3117;--bark-700:#604028;--bark-600:#7A552F;--bark-500:#9A7748;--bark-400:#B79A6E;
+/* ---- Wine — Egyptian Sunset ------------------------------------------ */
+--wine-900:#4A1F27;--wine-800:#5A2A30;--wine-700:#682830;--wine-600:#782838;--wine-500:#8F4A4C;--wine-400:#A96C6C;--wine-200:#DEC2C2;--wine-band:#6E3B3C;
+/* ---- Moss — Wildwood Elixir ------------------------------------------ */
+--moss-900:#203830;--moss-800:#2E4029;--moss-700:#384828;--moss-600:#4A5438;--moss-500:#5F6248;--sage-300:#B0C0A0;--sage-200:#C8D4BC;
+/* ---- Wheat — Banana Bedtime Tea -------------------------------------- */
+--wheat-600:#A88855;--wheat-500:#B79A6E;--wheat-400:#CBB18C;--wheat-300:#DCC6A4;--wheat-200:#EBDCC2;--gold-400:#C6A76B;
+
+/* ======================= SEMANTIC ALIASES ============================== */
+--surface-page:var(--paper-50);
+--surface-card:var(--paper-100);
+--surface-aged:var(--paper-300);
+--surface-sunken:var(--paper-200);
+--surface-inverse:var(--bark-700);
+
+--text-heading:var(--ink-900);
+--text-body:var(--ink-800);
+--text-muted:var(--ink-500);
+--text-faint:var(--ink-400);
+--text-on-dark:var(--paper-100);
+--text-link:var(--wine-700);
+--text-link-hover:var(--wine-900);
+
+--rule-hairline:color-mix(in srgb,var(--bark-500) 42%,transparent);
+--rule-strong:color-mix(in srgb,var(--bark-600) 70%,transparent);
+--border-panel:color-mix(in srgb,var(--bark-500) 38%,transparent);
+
+--accent-bedtime:var(--wheat-400);
+--accent-bedtime-ink:var(--ink-900);
+--accent-sunset:var(--wine-band);
+--accent-sunset-ink:var(--wine-700);
+--accent-wildwood:var(--moss-500);
+--accent-wildwood-ink:var(--moss-900);
+
+--brand-primary:var(--bark-700);
+--brand-on-primary:var(--paper-100);
+
+--focus-ring:var(--wine-700);
+--overlay-scrim:color-mix(in srgb,var(--ink-900) 34%,transparent);
+}
+
+/* Product accent scopes — set data-accent on any container. */
+[data-accent="bedtime"]{--accent:var(--accent-bedtime);--accent-ink:var(--accent-bedtime-ink);--accent-on:var(--ink-900)}
+[data-accent="sunset"]{--accent:var(--accent-sunset);--accent-ink:var(--accent-sunset-ink);--accent-on:var(--paper-100)}
+[data-accent="wildwood"]{--accent:var(--accent-wildwood);--accent-ink:var(--accent-wildwood-ink);--accent-on:var(--paper-100)}

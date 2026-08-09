@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Britanical Blends — Design System</title>
+<meta name="ext-resource-dependency" content="../assets/margin-bedtime-left.png" data-resource-id="mBedtimeL" />
+<meta name="ext-resource-dependency" content="../assets/margin-bedtime-right.png" data-resource-id="mBedtimeR" />
+<meta name="ext-resource-dependency" content="../assets/margin-sunset-left.png" data-resource-id="mSunsetL" />
+<meta name="ext-resource-dependency" content="../assets/margin-sunset-right.png" data-resource-id="mSunsetR" />
+<meta name="ext-resource-dependency" content="../assets/margin-wildwood-left.png" data-resource-id="mWildwoodL" />
+<meta name="ext-resource-dependency" content="../assets/margin-wildwood-right.png" data-resource-id="mWildwoodR" />
+<meta name="ext-resource-dependency" content="../assets/motif-herbs-colour.png" data-resource-id="motifColour" />
+<meta name="ext-resource-dependency" content="../assets/motif-herbs-wine.png" data-resource-id="motifWine" />
+<meta name="ext-resource-dependency" content="../assets/motif-herbs-moss.png" data-resource-id="motifMoss" />
+<meta name="ext-resource-dependency" content="../assets/logo-roundel.png" data-resource-id="logoRoundel" />
+<meta name="ext-resource-dependency" content="../assets/photo-table-interior.jpg" data-resource-id="photoInterior" />
+<meta name="ext-resource-dependency" content="../assets/photo-lineup-cards.jpg" data-resource-id="photoLineup" />
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+body{margin:0;background:var(--surface-page)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+.cover{display:grid;justify-items:center;gap:20px;padding:88px 0 76px;text-align:center}
+.cover .lede{max-width:60ch;font:var(--type-body);color:var(--ink-600);margin:8px 0 0}
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper-50) 92%,transparent);border-top:1px solid var(--rule-hairline);border-bottom:1px solid var(--rule-hairline);backdrop-filter:blur(6px)}
+nav.toc ul{list-style:none;margin:0 auto;padding:0 44px;max-width:1180px;display:flex;gap:26px;flex-wrap:wrap;height:52px;align-items:center}
+nav.toc a{font:var(--weight-regular) 11px/1 var(--font-body);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-600);border:0}
+nav.toc a:hover{color:var(--wine-700)}
+section.sec{padding:76px 0 8px}
+.sec-h{display:grid;justify-items:center;gap:14px;margin-bottom:48px;text-align:center}
+h2.title{margin:0;font:var(--weight-regular) 42px/1 var(--font-display);text-transform:uppercase;letter-spacing:.02em;color:var(--ink-900)}
+.sec-h p{margin:0;max-width:56ch;font:var(--type-body-sm);color:var(--ink-500)}
+h3.sub{margin:52px 0 20px;font:600 12px/1.4 var(--font-body);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-900)}
+.ramp{margin-bottom:26px}
+.ramp-h{font:var(--weight-regular) 11px/1 var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-400);margin-bottom:10px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{width:104px}
+.chip span{display:block;height:56px;border-radius:var(--radius-sm);border:1px solid color-mix(in srgb,var(--bark-800) 12%,transparent)}
+.chip b{display:block;font:var(--weight-regular) 10px/1.5 var(--font-sans);letter-spacing:.04em;color:var(--ink-500);margin-top:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.spec{background:var(--surface-card);border:1px solid var(--border-panel);padding:26px 24px;display:grid;gap:14px}
+.meta{font:var(--weight-regular) 10px/1.6 var(--font-sans);letter-spacing:.05em;color:var(--ink-400)}
+.row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;justify-content:center;margin:0 0 34px;flex-wrap:wrap}
+.detail{display:grid;grid-template-columns:auto auto;gap:56px;justify-content:center;align-items:start}
+.aside{display:grid;gap:20px;max-width:320px;align-content:start;padding-top:6px}
+.aside h4{margin:0;font:600 12px/1.4 var(--font-body);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-900)}
+.aside p{margin:0;font:var(--type-body-sm);color:var(--ink-700)}
+.note{font:var(--weight-regular) 11px/1.7 var(--font-sans);letter-spacing:.04em;color:var(--ink-400);text-align:center;margin:40px auto 0;max-width:70ch}
+.full{width:100%;height:320px;object-fit:cover;display:block}
+footer{padding:70px 0 90px;text-align:center;display:grid;gap:16px;justify-items:center}
+.rule{height:1px;background:var(--rule-hairline);margin:70px 0 0}
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#604028">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#604028"/>
+<circle cx="600" cy="400" r="252" fill="#F8E8D0"/>
+<circle cx="600" cy="400" r="230" fill="none" stroke="#604028" stroke-width="5"/>
+<circle cx="600" cy="400" r="215" fill="none" stroke="#604028" stroke-width="2"/>
+<text x="600" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="70" letter-spacing="12" fill="#4A3117">BRITANICAL</text>
+<text x="600" y="466" text-anchor="middle" font-family="Georgia, serif" font-size="70" letter-spacing="12" fill="#4A3117">BLENDS</text>
+</svg>
+</template>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<script src="blends.js"></script>
+<script type="text/babel" src="Kit.jsx"></script>
+<script type="text/babel" data-presets="react">
+const D = window.BritanicalBlendsDesignSystem_707ab1 || {};
+const Swatch = ({ v }) => (<div className="chip"><span style={{ background: 'var(' + v + ')' }} /><b>{v.replace('--', '')}</b></div>);
+const Ramp = ({ name, items }) => (<div className="ramp"><div className="ramp-h">{name}</div><div className="chips">{items.map((v) => <Swatch key={v} v={v} />)}</div></div>);
+
+function Packaging() {
+  const [view, setView] = React.useState('range');
+  const [sel, setSel] = React.useState('sunset');
+  const blend = BB_BLENDS.find((b) => b.key === sel);
+  return (
+    <>
+      <nav className="tabs">
+        <D.Button size="sm" variant={view === 'range' ? 'primary' : 'secondary'} onClick={() => setView('range')}>The range</D.Button>
+        {BB_BLENDS.map((b) => (
+          <D.Button key={b.key} size="sm" variant={view === 'detail' && sel === b.key ? 'primary' : 'secondary'}
+            onClick={() => { setSel(b.key); setView('detail'); }}>{b.name.join(' ')}</D.Button>
+        ))}
+      </nav>
+      {view === 'range' ? (
+        <div style={{ display: 'flex', gap: 26, justifyContent: 'center', alignItems: 'flex-start' }}>
+          {BB_BLENDS.map((b) => <ProductCard key={b.key} blend={b} width={330} selected={sel === b.key} onClick={() => { setSel(b.key); setView('detail'); }} />)}
+        </div>
+      ) : (
+        <div className="detail" data-accent={blend.accent}>
+          <ProductCard blend={blend} width={420} />
+          <div className="aside">
+            <JarLabel blend={blend} width={280} />
+            <div className="row" style={{ gap: 8 }}>
+              <D.Badge tone="soft">Loose leaf</D.Badge>
+              <D.Badge tone="outline">50g</D.Badge>
+              {blend.key === 'sunset' && <D.Badge tone="outline">Caffeine free</D.Badge>}
+            </div>
+            <div style={{ display: 'grid', gap: 8 }}>
+              <h4>Jar label</h4>
+              <p>The 260&ndash;280px jar label carries the same lockup as the info card at a quarter of the height: wordmark, fleuron, product name, hanging-herb motif, ingredient run.</p>
+            </div>
+            <div className="row" style={{ gap: 10 }}>
+              <D.Button variant="accent">Add to basket</D.Button>
+              <D.Button variant="ghost" onClick={() => setView('range')}>Back to range</D.Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <div className="wrap">
+        <header className="cover">
+          <img src={bbRes('logo-roundel.png')} alt="Britanical Blends" width="150" height="150" style={{ borderRadius: '50%' }} />
+          <D.Wordmark size="xl" color="var(--bark-700)" />
+          <D.Strapline size={12} color="var(--ink-500)" />
+          <D.Fleuron width={260} glyphColor="var(--bark-600)" />
+          <p className="lede">A small-batch loose-leaf herbal tea maker. Old apothecary, gently kept: aged cream paper, botanical engravings, a classical serif, and one saturated colour per blend.</p>
+        </header>
+      </div>
+
+      <nav className="toc"><ul>
+        <li><a href="#colour">Colour</a></li>
+        <li><a href="#type">Type</a></li>
+        <li><a href="#space">Space &amp; form</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#packaging">Packaging kit</a></li>
+        <li><a href="#marketing">Marketing kit</a></li>
+        <li><a href="#voice">Voice &amp; iconography</a></li>
+      </ul></nav>
+
+      <div className="wrap">
+        <section className="sec" id="colour">
+          <div className="sec-h"><h2 className="title">Colour</h2><p>Sampled directly from the printed product cards. Cream paper, warm ink, and one saturated accent per blend. There is no neutral grey anywhere in this system.</p></div>
+          <Ramp name="Paper &amp; cream" items={['--paper-50','--paper-100','--paper-200','--paper-300','--paper-400','--paper-500','--blush-100']} />
+          <Ramp name="Ink" items={['--ink-900','--ink-800','--ink-700','--ink-600','--ink-500','--ink-400','--ink-300','--ink-200']} />
+          <Ramp name="Bark — logo brown" items={['--bark-800','--bark-700','--bark-600','--bark-500','--bark-400']} />
+          <Ramp name="Wine — Egyptian Sunset" items={['--wine-900','--wine-800','--wine-700','--wine-600','--wine-500','--wine-400','--wine-band']} />
+          <Ramp name="Moss — Wildwood Elixir" items={['--moss-900','--moss-800','--moss-700','--moss-600','--moss-500','--sage-300','--sage-200']} />
+          <Ramp name="Wheat — Banana Bedtime Tea" items={['--wheat-600','--wheat-500','--wheat-400','--wheat-300','--wheat-200','--gold-400']} />
+          <h3 className="sub">Accent scopes</h3>
+          <div className="grid3">
+            {BB_BLENDS.map((b) => (
+              <div key={b.key} data-accent={b.accent}>
+                <div style={{ background: 'var(--accent)', color: 'var(--accent-on)', padding: '18px 16px', textAlign: 'center' }}>
+                  <D.Strapline size={10} color="var(--accent-on)" style={{ opacity: 0.9 }} />
+                  <D.ScriptQuote lines={b.quote} size={24} color="var(--accent-on)" style={{ marginTop: 6 }} />
+                </div>
+                <div className="meta" style={{ textAlign: 'center', marginTop: 8 }}>data-accent="{b.accent}"</div>
+              </div>
+            ))}
+          </div>
+          <div className="rule" />
+        </section>
+
+        <section className="sec" id="type">
+          <div className="sec-h"><h2 className="title">Type</h2><p>Four faces, each with one job. Tracking is the signature — the wordmark runs at 0.34em and is never tightened.</p></div>
+          <div className="grid2">
+            <div className="spec">
+              <div className="ramp-h">Display — Cormorant Garamond</div>
+              <div style={{ font: 'var(--weight-regular) 50px/0.92 var(--font-display)', textTransform: 'uppercase', color: 'var(--wine-700)' }}>Egyptian Sunset</div>
+              <div className="meta">400 &middot; 42&ndash;96px &middot; leading 0.92 &middot; uppercase</div>
+            </div>
+            <div className="spec">
+              <div className="ramp-h">Wordmark setting</div>
+              <D.Wordmark size="lg" color="var(--bark-700)" align="left" />
+              <D.Wordmark size="md" color="var(--moss-800)" align="left" />
+              <div className="meta">--tracking-wordmark 0.34em &middot; never bold</div>
+            </div>
+            <div className="spec">
+              <div className="ramp-h">Body — EB Garamond</div>
+              <p style={{ margin: 0, font: 'var(--type-body)', color: 'var(--ink-800)' }}>A vibrant, exotic blend inspired by golden evenings. Beautifully floral and refreshing, it uplifts the senses.</p>
+              <D.SectionLabel align="left">About this blend</D.SectionLabel>
+              <div className="meta">Body 16/1.62 &middot; headings 13px 600 at 0.18em</div>
+            </div>
+            <div className="spec">
+              <div className="ramp-h">Sans &amp; script</div>
+              <D.Strapline font="sans" size={16} color="var(--ink-700)" style={{ justifyContent: 'flex-start' }} />
+              <D.ScriptQuote size={30} align="left" color="var(--wine-700)">Sip slow. Dream deep.</D.ScriptQuote>
+              <div className="meta">Jost Light over photography only &middot; Sacramento once per surface</div>
+            </div>
+          </div>
+          <h3 className="sub">Size scale</h3>
+          <div className="row" style={{ alignItems: 'baseline', gap: 20 }}>
+            {[['3xs',10],['2xs',11],['xs',12],['sm',14],['base',16],['md',18],['lg',21],['xl',26],['2xl',32],['3xl',42],['4xl',56]].map(([n, s]) => (
+              <div key={n} style={{ textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: s, lineHeight: 1, color: 'var(--ink-800)' }}>Aa</div>
+                <div className="meta" style={{ marginTop: 6 }}>{n} {s}</div>
+              </div>
+            ))}
+          </div>
+          <div className="rule" />
+        </section>
+
+        <section className="sec" id="space">
+          <div className="sec-h"><h2 className="title">Space &amp; form</h2><p>Square by default. The one rounded rectangle in the whole brand is the benefits panel at 14px.</p></div>
+          <h3 className="sub">Spacing scale</h3>
+          <div className="row" style={{ alignItems: 'flex-end', gap: 12 }}>
+            {[2,4,6,8,12,16,20,24,32,40,48,64,80,96].map((v) => (
+              <div key={v} style={{ textAlign: 'center' }}>
+                <div style={{ width: Math.min(v, 44), height: Math.min(v * 0.9, 70), background: 'var(--wheat-400)', borderRadius: 'var(--radius-xs)' }} />
+                <div className="meta" style={{ marginTop: 6 }}>{v}</div>
+              </div>
+            ))}
+          </div>
+          <h3 className="sub">Corner radii</h3>
+          <div className="row" style={{ gap: 18, alignItems: 'flex-end' }}>
+            {[['none','0'],['sm 3','var(--radius-sm)'],['md 6','var(--radius-md)'],['lg 10','var(--radius-lg)'],['panel 14','var(--radius-panel)'],['jar 18','var(--radius-jar)'],['pill','var(--radius-pill)'],['round','var(--radius-round)']].map(([n, v]) => (
+              <div key={n} style={{ textAlign: 'center' }}>
+                <div style={{ width: 78, height: 58, background: 'var(--paper-200)', border: '1px solid var(--border-panel)', borderRadius: v }} />
+                <div className="meta" style={{ marginTop: 7 }}>{n}</div>
+              </div>
+            ))}
+          </div>
+          <h3 className="sub">Elevation</h3>
+          <div className="row" style={{ gap: 28 }}>
+            {[['none','none'],['xs','var(--shadow-xs)'],['sm','var(--shadow-sm)'],['card','var(--shadow-card)'],['lifted','var(--shadow-lifted)']].map(([n, v]) => (
+              <div key={n} style={{ textAlign: 'center' }}>
+                <div style={{ width: 120, height: 82, background: 'var(--surface-card)', border: '1px solid var(--border-panel)', borderRadius: 'var(--radius-md)', boxShadow: v }} />
+                <div className="meta" style={{ marginTop: 10 }}>{n}</div>
+              </div>
+            ))}
+          </div>
+          <h3 className="sub">Motion &amp; states</h3>
+          <div className="row" style={{ gap: 14 }}>
+            <D.Button>Rest</D.Button>
+            <D.Button style={{ background: 'var(--bark-800)' }}>Hover</D.Button>
+            <D.Button style={{ background: 'var(--bark-800)', transform: 'translateY(1px)' }}>Press</D.Button>
+            <D.Button disabled>Disabled</D.Button>
+          </div>
+          <p className="meta" style={{ marginTop: 14 }}>--dur-fast 140ms colour &middot; --dur-base 240ms surfaces &middot; --ease-standard cubic-bezier(.22,.61,.36,1) &middot; no bounce, no spring, no scale</p>
+          <div className="rule" />
+        </section>
+
+        <section className="sec" id="components">
+          <div className="sec-h"><h2 className="title">Components</h2><p>Sixteen primitives in three groups. Every one maps to something printed on a card or a label, except Button and Badge, which are inferred.</p></div>
+          <h3 className="sub">Brand</h3>
+          <div className="grid2">
+            <div className="spec" style={{ justifyItems: 'center' }}>
+              <img src={bbRes('logo-roundel.png')} alt="Britanical Blends roundel" width="150" height="150" style={{ borderRadius: '50%' }} />
+              <div className="meta">Logomark &middot; minimum 64px</div>
+            </div>
+            <div className="spec">
+              <D.Wordmark size="lg" color="var(--bark-700)" align="left" />
+              <D.Fleuron width={280} glyphColor="var(--bark-600)" />
+              <D.Strapline color="var(--ink-600)" style={{ justifyContent: 'flex-start' }} />
+              <D.OrnateFrame color="color-mix(in srgb, var(--bark-600) 45%, transparent)" inset={0} style={{ height: 90, display: 'grid', placeItems: 'center', background: 'var(--paper-100)', marginTop: 8 }}>
+                <D.Wordmark size="sm" color="var(--bark-700)" />
+              </D.OrnateFrame>
+              <div className="meta">Wordmark &middot; Fleuron &middot; Strapline &middot; OrnateFrame</div>
+            </div>
+          </div>
+          <h3 className="sub">Core</h3>
+          <div className="row" data-accent="sunset">
+            <D.Button variant="primary">Shop the range</D.Button>
+            <D.Button variant="secondary">Read the ritual</D.Button>
+            <D.Button variant="accent">Add to basket</D.Button>
+            <D.Button variant="ghost">Full ingredients</D.Button>
+            <D.Button variant="primary" disabled>Sold out</D.Button>
+          </div>
+          <div className="row" data-accent="wildwood" style={{ marginTop: 16 }}>
+            <D.Badge>Loose leaf</D.Badge>
+            <D.Badge tone="soft">Naturally caffeine free</D.Badge>
+            <D.Badge tone="solid">New blend</D.Badge>
+            <D.Badge tone="quiet">50g</D.Badge>
+          </div>
+          <div className="grid3" style={{ marginTop: 22 }}>
+            <D.Card><D.SectionLabel align="left">Paper</D.SectionLabel><p style={{ margin: '8px 0 0', font: 'var(--type-body-sm)' }}>Default cream panel with hairline border and grain.</p></D.Card>
+            <D.Card tone="aged" elevated><D.SectionLabel align="left">Aged &middot; elevated</D.SectionLabel><p style={{ margin: '8px 0 0', font: 'var(--type-body-sm)' }}>Parchment tone lifted on the warm shadow.</p></D.Card>
+            <div data-accent="sunset"><D.Card tone="accent" grain={false}><D.SectionLabel align="left" color="var(--paper-100)">Accent</D.SectionLabel><D.ScriptQuote size={26} color="var(--paper-100)" align="left" style={{ marginTop: 6 }}>Sip in the sunset.</D.ScriptQuote></D.Card></div>
+          </div>
+          <h3 className="sub">Product</h3>
+          <div className="grid2" data-accent="sunset">
+            <D.BlendPanel benefits={BB_BLENDS[1].benefits} borderColor="color-mix(in srgb, var(--wine-700) 34%, transparent)" />
+            <div style={{ display: 'grid', gap: 10, alignContent: 'start' }}>
+              <D.SectionLabel size={12}>Ingredients</D.SectionLabel>
+              <D.IngredientLine items={BB_BLENDS[1].ingredients} />
+              <D.IngredientLine items={BB_BLENDS[2].ingredients} />
+            </div>
+          </div>
+          <div className="grid3" style={{ marginTop: 20 }}>
+            {BB_BLENDS.map((b) => (
+              <div key={b.key} data-accent={b.accent}>
+                <D.AccentFooter quote={b.quote} color={b.bandInk} quoteSize={26} straplineSize={10} />
+              </div>
+            ))}
+          </div>
+          <div className="rule" />
+        </section>
+
+        <section className="sec" id="packaging">
+          <div className="sec-h"><h2 className="title">Packaging kit</h2><p>The printed product information card and the jar label, recreated from the artwork. Click a card to open it.</p></div>
+          <Packaging />
+          <div className="rule" />
+        </section>
+
+        <section className="sec" id="marketing">
+          <div className="sec-h"><h2 className="title">Marketing kit</h2><p>The lifestyle banner lockup and the three-up range strip. No storefront, app or checkout exists in the source material, so none has been designed.</p></div>
+        </section>
+      </div>
+
+      <HeroBanner>
+        <D.Button variant="secondary" style={{ color: 'var(--paper-50)', borderColor: 'color-mix(in srgb, var(--paper-50) 55%, transparent)', marginTop: 12 }}>Shop the range</D.Button>
+      </HeroBanner>
+
+      <div className="wrap">
+        <div style={{ display: 'grid', gap: 30, justifyItems: 'center', marginTop: 64 }}>
+          <D.SectionLabel size={13}>Our blends</D.SectionLabel>
+          <D.Fleuron width={220} glyphColor="var(--bark-600)" />
+          <div className="grid3" style={{ width: '100%' }}>
+            {BB_BLENDS.map((b) => <RangeTile key={b.key} blend={b} />)}
+          </div>
+        </div>
+
+        <div className="grid2" style={{ marginTop: 66, alignItems: 'center', gap: 44 }}>
+          <img className="full" src={bbRes('photo-lineup-cards.jpg')} alt="Three jars of Britanical Blends loose-leaf tea on a wooden table with the printed cards behind them" />
+          <div style={{ display: 'grid', gap: 18, justifyItems: 'start' }}>
+            <D.SectionLabel align="left" size={12}>About this blend</D.SectionLabel>
+            <p style={{ margin: 0, font: 'var(--type-body)', color: 'var(--ink-700)', maxWidth: '46ch' }}>{BB_BLENDS[1].about}</p>
+            <D.Fleuron width={200} glyphColor="var(--bark-600)" />
+            <div data-accent="sunset">
+              <D.ScriptQuote lines={BB_BLENDS[1].quote} align="left" size={30} color="var(--wine-700)" />
+              <D.Button variant="accent" style={{ marginTop: 14 }}>Add to basket</D.Button>
+            </div>
+          </div>
+        </div>
+        <div className="rule" />
+
+        <section className="sec" id="voice">
+          <div className="sec-h"><h2 className="title">Voice &amp; iconography</h2><p>Calm, plain, faintly herbalist. The brand describes what a blend does and stops.</p></div>
+          <div className="grid2">
+            <div className="spec">
+              <D.SectionLabel align="left" size={12}>Casing rules</D.SectionLabel>
+              <p style={{ margin: 0, font: 'var(--type-body-sm)', color: 'var(--ink-700)' }}>Wordmark, strapline, product names, subtitles and section headings are ALL CAPS. Body copy is sentence case with full stops. Ingredients are Title Case, comma separated. Benefits are sentence case with no full stop. British spelling throughout &mdash; defences, Energising &mdash; and the label&rsquo;s own house spellings are kept: Cats Claw, Licorice Root.</p>
+            </div>
+            <div className="spec">
+              <D.SectionLabel align="left" size={12}>Never</D.SectionLabel>
+              <p style={{ margin: 0, font: 'var(--type-body-sm)', color: 'var(--ink-700)' }}>No emoji, anywhere. No exclamation marks, no urgency, no second-person selling. No health claim that is not already printed on the packaging. No cool light or black-and-white photography. No gradient backgrounds and no coloured left borders.</p>
+            </div>
+          </div>
+          <h3 className="sub">Iconography</h3>
+          <div className="row" style={{ gap: 34 }}>
+            {[['ti-spoon','1 tsp per cup'],['ti-temperature','100°C'],['ti-clock','Steep 7–10 mins']].map(([i, l]) => (
+              <div key={l} className="row" style={{ gap: 10 }}>
+                <i className={'ti ' + i} aria-hidden="true" style={{ fontSize: 22, color: 'var(--ink-700)' }} />
+                <span style={{ font: 'var(--type-body-sm)', color: 'var(--ink-700)' }}>{l}</span>
+              </div>
+            ))}
+            <div className="row" style={{ gap: 18, marginLeft: 20 }}>
+              {['\u2766', '\u2767', '\u2726', '\u00B7', '\u2022'].map((g) => (
+                <span key={g} style={{ font: 'var(--weight-regular) 20px/1 var(--font-body)', color: 'var(--bark-600)' }}>{g}</span>
+              ))}
+            </div>
+          </div>
+          <p className="meta" style={{ marginTop: 16 }}>Brew-guide glyphs are Tabler Icons, substituted for the originals. Decorative marks are typographic, not iconographic.</p>
+        </section>
+      </div>
+
+      <footer>
+        <D.Fleuron width={240} glyphColor="var(--bark-600)" />
+        <D.Wordmark size="md" color="var(--bark-700)" />
+        <D.Strapline size={11} color="var(--ink-400)" />
+        <p className="note">Fonts are close Google Fonts substitutions &mdash; no binaries were supplied. Brew-guide icons are substituted from Tabler. Button and Badge have no counterpart in the source material and are inferred. Botanical engravings are cropped from the original artwork, not redrawn.</p>
+      </footer>
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
