@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Britanical Blends — Brand surfaces</title>
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
@@ -15,6 +15,14 @@ body{margin:0;background:var(--surface-page)}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-top:72px}
 .split p{font:var(--type-body);color:var(--ink-700);max-width:46ch;margin:0}
 .note{font:var(--weight-regular) 11px/1.6 var(--font-sans);letter-spacing:.04em;color:var(--ink-400);text-align:center;margin-top:64px}
+@media (max-width:800px){
+.wrap{padding:0 22px 64px}
+.section{margin-top:52px}
+.split{grid-template-columns:1fr;gap:26px;margin-top:52px;justify-items:center;text-align:center}
+.split > div{justify-items:center}
+.split p{text-align:center}
+.photo{height:260px}
+}
 </style>
 </head>
 <body>
@@ -33,7 +41,7 @@ function App() {
   return (
     <>
       <div className="band">
-        <HeroBanner image="../../assets/photo-table-interior.jpg" height={430}>
+        <HeroBanner image="../../assets/photo-table-interior.jpg">
           <BBm.Button variant="secondary" style={{ color: 'var(--paper-50)', borderColor: 'color-mix(in srgb, var(--paper-50) 55%, transparent)', marginTop: 12 }}>Shop the range</BBm.Button>
         </HeroBanner>
       </div>

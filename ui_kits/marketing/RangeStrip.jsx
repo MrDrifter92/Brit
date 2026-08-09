@@ -35,7 +35,7 @@ function RangeStrip({ blends }) {
     <section style={{ display: 'grid', gap: 30, justifyItems: 'center' }}>
       <BBr.SectionLabel size={13}>Our blends</BBr.SectionLabel>
       <BBr.Fleuron width={220} glyphColor="var(--bark-600)" />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 26, width: '100%' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 26, width: '100%' }}>
         {blends.map((b) => <RangeTile key={b.key} blend={b} />)}
       </div>
     </section>
