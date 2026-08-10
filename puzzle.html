@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Selfie Puzzle Challenge</title>
+<style>
+  body { 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    margin: 0; 
+    background-color: #121212; 
+    color: #ffffff;
+    text-align: center;
+  }
+  h2 { margin-bottom: 30px; }
+  
+  /* Styling for the camera upload button */
+  .btn { 
+    padding: 16px 32px; 
+    font-size: 20px; 
+    font-weight: bold;
+    background: #FF0050; 
+    color: white; 
+    border-radius: 30px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4);
+    transition: transform 0.2s;
+  }
+  .btn:active { transform: scale(0.95); }
+
+  /* The Puzzle Board */
+  #puzzle-board { 
+    display: none; /* Hidden until selfie is taken */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2px; 
+    width: 300px; 
+    height: 300px; 
+    margin-top: 20px; 
+    background: #333; 
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* Individual Puzzle Pieces */
+  .piece { 
+    width: 100%; 
+    height: 100%; 
+    background-size: 300px 300px; 
+    cursor: pointer; 
+    transition: opacity 0.2s, transform 0.1s; 
+  }
+  
+  /* Highlight when a piece is tapped to swap */
+  .selected { 
+    opacity: 0.6; 
+    transform: scale(0.9);
+    outline: 3px solid #00E5FF; 
+    z-index: 10;
+  }
+  
+  #message { 
+    margin-top: 25px; 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #00E5FF; 
+    display: none;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  #instructions { margin-top: 15px; font-size: 14px; color: #aaa; display: none; }
+
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+  <h2>Snap a selfie.<br>Solve the puzzle.</h2>
+  
+  <!-- Hidden file input that triggers the mobile camera -->
+  <input type="file" accept="image/*" capture="user" id="cameraInput" style="display: none;">
+  <label for="cameraInput" class="btn">📷 Take a Selfie</label>
+  
+  <p id="instructions">Tap one piece, then tap another to swap them!</p>
+  <div id="puzzle-board"></div>
+  <div id="message">You solved it! 🎉</div>
+
+  <script>
+    const input = document.getElementById('cameraInput');
+    const board = document.getElementById('puzzle-board');
+    const message = document.getElementById('message');
+    const instructions = document.getElementById('instructions');
+    let pieces = [];
+    let selectedIndex = null;
+    const GRID_SIZE = 3; // 3x3 grid (9 pieces)
+    const BOARD_SIZE = 300;
+
+    // Listen for the selfie capture
+    input.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => createPuzzle(img);
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function createPuzzle(img) {
+      pieces = [];
+      board.innerHTML = '';
+      board.style.display = 'grid';
+      instructions.style.display = 'block';
+      message.style.display = 'none';
+      board.style.pointerEvents = 'auto';
+
+      // Create an offscreen canvas to crop the selfie into a perfect square
+      const canvas = document.createElement('canvas');
+      canvas.width = BOARD_SIZE;
+      canvas.height = BOARD_SIZE;
+      const ctx = canvas.getContext('2d');
+
+      // Math to crop the center of the image
+      const minDim = Math.min(img.width, img.height);
+      const startX = (img.width - minDim) / 2;
+      const startY = (img.height - minDim) / 2;
+      ctx.drawImage(img, startX, startY, minDim, minDim, 0, 0, BOARD_SIZE, BOARD_SIZE);
+
+      const puzzleImgSrc = canvas.toDataURL();
+      const pieceSize = BOARD_SIZE / GRID_SIZE;
+
+      // Cut into 9 pieces
+      for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+        const row = Math.floor(i / GRID_SIZE);
+        const col = i % GRID_SIZE;
+        pieces.push({
+          id: i, // Original correct index
+          bgPos: `-${col * pieceSize}px -${row * pieceSize}px`,
+          src: puzzleImgSrc
+        });
+      }
+
+      // Shuffle the pieces randomly
+      pieces.sort(() => Math.random() - 0.5);
+      renderBoard();
+    }
+
+    function renderBoard() {
+      board.innerHTML = '';
+      pieces.forEach((piece, index) => {
+        const div = document.createElement('div');
+        div.className = 'piece';
+        div.style.backgroundImage = `url(${piece.src})`;
+        div.style.backgroundPosition = piece.bgPos;
+        
+        if (selectedIndex === index) {
+          div.classList.add('selected');
+        }
+
+        div.onclick = () => handlePieceClick(index);
+        board.appendChild(div);
+      });
+    }
+
+    function handlePieceClick(index) {
+      if (selectedIndex === null) {
+        // Select first piece
+        selectedIndex = index;
+        renderBoard();
+      } else {
+        // Swap with second piece
+        const temp = pieces[selectedIndex];
+        pieces[selectedIndex] = pieces[index];
+        pieces[index] = temp;
+        selectedIndex = null; // Reset selection
+        renderBoard();
+        checkWin();
+      }
+    }
+
+    function checkWin() {
+      // Check if every piece's current index matches its original ID
+      const isWin = pieces.every((piece, index) => piece.id === index);
+      if (isWin) {
+        message.style.display = 'block';
+        instructions.style.display = 'none';
+        board.style.pointerEvents = 'none'; // Lock the board
+      }
+    }
+  </script>
+</body>
+</html>
