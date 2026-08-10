@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britanical Blends</title>
+    
+    <!-- Tailwind CSS for Layout Structure -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=EB+Garamond:wght@400;600&family=Jost:wght@200;400&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+    
+    <style>
+        /* Design System Tokens */
+        :root {
+            /* Colors */
+            --paper-50: #FDFAF3;
+            --paper-500: #CDBF9E;
+            --ink-900: #1E1A14;
+            --bark-700: #604028;
+            --bark-800: #48301E;
+            --surface-aged: #E8E0C8;
+            
+            /* Tracking (Letter Spacing) */
+            --tracking-wordmark: 0.34em;
+            --tracking-caps: 0.18em;
+            --tracking-eyebrow: 0.12em;
+
+            /* Motion */
+            --dur-fast: 140ms;
+            --ease-standard: cubic-bezier(.22,.61,.36,1);
+        }
+        
+        body {
+            background-color: var(--paper-50);
+            color: var(--ink-900);
+            font-family: 'EB Garamond', serif;
+        }
+
+        /* Typography Roles */
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Jost', sans-serif; }
+        .font-script { font-family: 'Sacramento', cursive; }
+
+        .tracking-wordmark { letter-spacing: var(--tracking-wordmark); }
+        .tracking-caps { letter-spacing: var(--tracking-caps); }
+        .tracking-eyebrow { letter-spacing: var(--tracking-eyebrow); }
+
+        /* Brand Ornaments & Frames */
+        .double-frame {
+            position: relative;
+            border: 1px solid var(--bark-700);
+            background-color: var(--paper-50);
+        }
+        .double-frame::before {
+            content: '';
+            position: absolute;
+            top: 11px; left: 11px; right: 11px; bottom: 11px;
+            border: 1px solid rgba(96, 64, 40, 0.55);
+            pointer-events: none;
+        }
+        
+        /* ❦ Fleuron Ornaments */
+        .fleuron {
+            position: absolute;
+            color: var(--bark-700);
+            font-size: 14px;
+            line-height: 1;
+        }
+        .fleuron-tl { top: 7px; left: 7px; transform: rotate(-45deg); }
+        .fleuron-tr { top: 7px; right: 7px; transform: rotate(45deg); }
+        .fleuron-bl { bottom: 7px; left: 7px; transform: rotate(-135deg); }
+        .fleuron-br { bottom: 7px; right: 7px; transform: rotate(135deg); }
+
+        .fleuron-divider::before, .fleuron-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--bark-700);
+            margin: 0 1rem;
+        }
+
+        /* Accent Scopes */
+        [data-accent="bedtime"] { --accent: #CBB18C; }
+        [data-accent="sunset"] { --accent: #6E3B3C; }
+        [data-accent="wildwood"] { --accent: #5F6248; }
+
+        .accent-bg { 
+            background-color: var(--accent); 
+            color: var(--paper-50); 
+        }
+
+        /* Interactive Elements */
+        .btn-primary {
+            background-color: var(--bark-700);
+            color: var(--paper-50);
+            border-radius: 3px;
+            transition: background-color var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard);
+        }
+        .btn-primary:hover {
+            background-color: var(--bark-800);
+            box-shadow: 0 4px 6px -1px rgba(96, 64, 40, 0.2);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+        
+        /* Soft Panels */
+        .panel-radius { border-radius: 14px; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header / Logo -->
+    <header class="py-12 text-center flex flex-col items-center justify-center">
+        <!-- Transparent Logo Asset -->
+        <img src="core-logo-transparent.png" alt="Britanical Blends Roundel Logo" class="h-24 w-24 object-contain mb-6">
+        
+        <h1 class="font-display text-4xl uppercase tracking-wordmark mb-4">Britanical Blends</h1>
+        <p class="font-sans text-sm uppercase tracking-caps">NATURE &middot; INTENTION &middot; NOURISHMENT</p>
+    </header>
+
+    <!-- Hero Section with Protection Gradient -->
+    <section class="relative w-full max-w-7xl mx-auto h-96 mb-16 bg-[#1E1A14] flex items-center justify-center">
+        <img src="https://placehold.co/1280x400/1E1A14/D2C6AF?text=Warm+Tungsten+Interior+Photography" alt="Hero Lifestyle Imagery" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay">
+        
+        <div class="relative z-10 text-center text-[#FDFAF3] flex flex-col items-center">
+            <h2 class="font-display text-5xl uppercase tracking-wordmark mb-4">Old Apothecary, Gently Kept</h2>
+            <div class="mt-8">
+                <!-- CTA Button -->
+                <button class="btn-primary uppercase tracking-caps text-xs px-8 py-3">Book In Now</button>
+            </div>
+        </div>
+        
+        <!-- Photographic Protection Gradient (26% top -> 0% -> 34% bottom) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none"></div>
+    </section>
+
+    <!-- Main Product Range -->
+    <main class="flex-grow w-full max-w-[1280px] mx-auto px-10 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <!-- Card: Banana Bedtime Tea -->
+            <article class="double-frame flex flex-col text-center shadow-md hover:-translate-y-1 transition-transform duration-200" data-accent="bedtime">
+                <!-- Corner Ornaments -->
+                <span class="fleuron fleuron-tl">&#10086;</span>
+                <span class="fleuron fleuron-tr">&#10086;</span>
+                <span class="fleuron fleuron-bl">&#10086;</span>
+                <span class="fleuron fleuron-br">&#10086;</span>
+                
+                <div class="p-8 flex-grow">
+                    <h3 class="font-display text-3xl uppercase leading-[0.95] mb-4">BANANA<br>BEDTIME TEA</h3>
+                    <p class="font-display uppercase tracking-eyebrow text-sm mb-6">A GENTLE, CALMING BLEND<br>FOR RESTFUL NIGHTS</p>
+                    
+                    <div class="flex items-center justify-center fleuron-divider text-xs mb-6">&#10086;</div>
+                    
+                    <h4 class="uppercase tracking-caps text-xs mb-2">INGREDIENTS</h4>
+                    <p class="text-sm mb-8">Banana, Banana Peel, Chamomile, Cinnamon Bark, Vanilla Bean</p>
+                    
+                    <div class="bg-[var(--surface-aged)] panel-radius p-6 text-left shadow-sm">
+                        <h4 class="uppercase tracking-caps text-xs text-center mb-4">BREW GUIDE</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center gap-3"><i class="ti ti-spoon text-lg"></i> 1 tsp per cup</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-temperature text-lg"></i> 100&deg;C</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-clock text-lg"></i> Steep 7&ndash;10 mins</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Accent Sign-off -->
+                <div class="accent-bg w-full py-4 px-6 mt-auto">
+                    <p class="font-script text-3xl">Sip slow. Dream deep.</p>
+                </div>
+            </article>
+
+            <!-- Card: Egyptian Sunset -->
+            <article class="double-frame flex flex-col text-center shadow-md hover:-translate-y-1 transition-transform duration-200" data-accent="sunset">
+                <span class="fleuron fleuron-tl">&#10086;</span>
+                <span class="fleuron fleuron-tr">&#10086;</span>
+                <span class="fleuron fleuron-bl">&#10086;</span>
+                <span class="fleuron fleuron-br">&#10086;</span>
+                
+                <div class="p-8 flex-grow">
+                    <h3 class="font-display text-3xl uppercase leading-[0.95] mb-4">EGYPTIAN<br>SUNSET</h3>
+                    <p class="font-display uppercase tracking-eyebrow text-sm mb-6">A FLORAL, FRUITY BLEND<br>TO UPLIFT & INSPIRE</p>
+                    
+                    <div class="flex items-center justify-center fleuron-divider text-xs mb-6">&#10086;</div>
+                    
+                    <h4 class="uppercase tracking-caps text-xs mb-2">INGREDIENTS</h4>
+                    <p class="text-sm mb-8">Hibiscus, Blue Lotus, Rose Petals, Orange Peel</p>
+                    
+                    <div class="bg-[var(--surface-aged)] panel-radius p-6 text-left shadow-sm">
+                        <h4 class="uppercase tracking-caps text-xs text-center mb-4">BREW GUIDE</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center gap-3"><i class="ti ti-spoon text-lg"></i> 1 tsp per cup</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-temperature text-lg"></i> 100&deg;C</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-clock text-lg"></i> Steep 7&ndash;10 mins</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accent-bg w-full py-4 px-6 mt-auto">
+                    <p class="font-script text-3xl">Breathe in beauty. Sip in the sunset.</p>
+                </div>
+            </article>
+
+            <!-- Card: Wildwood Elixir -->
+            <article class="double-frame flex flex-col text-center shadow-md hover:-translate-y-1 transition-transform duration-200" data-accent="wildwood">
+                <span class="fleuron fleuron-tl">&#10086;</span>
+                <span class="fleuron fleuron-tr">&#10086;</span>
+                <span class="fleuron fleuron-bl">&#10086;</span>
+                <span class="fleuron fleuron-br">&#10086;</span>
+                
+                <div class="p-8 flex-grow">
+                    <h3 class="font-display text-3xl uppercase leading-[0.95] mb-4">WILDWOOD<br>ELIXIR</h3>
+                    <p class="font-display uppercase tracking-eyebrow text-sm mb-6">AN EARTHY, HERBAL BLEND<br>FOR VITALITY & BALANCE</p>
+                    
+                    <div class="flex items-center justify-center fleuron-divider text-xs mb-6">&#10086;</div>
+                    
+                    <h4 class="uppercase tracking-caps text-xs mb-2">INGREDIENTS</h4>
+                    <p class="text-sm mb-8">Nettle, Peppermint, Cats Claw, Licorice Root, Ginger Root</p>
+                    
+                    <div class="bg-[var(--surface-aged)] panel-radius p-6 text-left shadow-sm">
+                        <h4 class="uppercase tracking-caps text-xs text-center mb-4">BREW GUIDE</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center gap-3"><i class="ti ti-spoon text-lg"></i> 1 tsp per cup</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-temperature text-lg"></i> 100&deg;C</li>
+                            <li class="flex items-center gap-3"><i class="ti ti-clock text-lg"></i> Steep 7&ndash;10 mins</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accent-bg w-full py-4 px-6 mt-auto">
+                    <p class="font-script text-3xl">Rooted in nature. Made for you.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+</body>
+</html>
