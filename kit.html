@@ -108,6 +108,28 @@ footer{background:var(--night-900); color:var(--paper-200); padding:52px 0 60px;
 footer .wm{font-family:"Cormorant Garamond",serif; font-size:16px; letter-spacing:var(--tracking-wordmark); text-indent:var(--tracking-wordmark); text-transform:uppercase; color:var(--gold-300)}
 footer .fine{font-size:14px; color:var(--night-600); filter:brightness(1.7); max-width:44em; margin:22px auto 0}
 
+
+/* ---------- making ---------- */
+.makes{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.make{background:var(--paper-50); padding:26px 24px 24px}
+.make.wide{grid-column:1 / -1; background:var(--paper-200)}
+.make header{border-bottom:1px solid var(--hair); padding-bottom:12px; margin-bottom:16px}
+.make h3{font-size:clamp(19px,2.4vw,25px); letter-spacing:.05em; margin:6px 0 6px}
+.make .meta{font-family:"Jost",sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-500)}
+.steps{list-style:none; margin:0; padding:0; counter-reset:step}
+.steps li{counter-increment:step; position:relative; padding:0 0 16px 34px; font-size:15.5px; color:var(--ink-700)}
+.steps li::before{
+  content:counter(step); position:absolute; left:0; top:2px;
+  font-family:"Jost",sans-serif; font-size:10px; letter-spacing:.06em; color:var(--ink-300);
+  width:20px; height:20px; border:1px solid var(--hair); display:flex; align-items:center; justify-content:center;
+}
+.steps li::after{content:""; position:absolute; left:10px; top:24px; bottom:2px; width:1px; background:var(--hair)}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps b{font-weight:500; color:var(--ink-900)}
+.check{margin-top:16px; padding-top:12px; border-top:1px solid var(--hair); font-family:"Jost",sans-serif; font-size:11px; line-height:1.7; letter-spacing:.04em; color:var(--ink-500)}
+@media (max-width:860px){ .makes{grid-template-columns:1fr} }
+
 /* ---------- motion ---------- */
 .rise{opacity:0; transform:translateY(14px); transition:opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease)}
 .rise.in{opacity:1; transform:none}
@@ -497,6 +519,147 @@ a:focus-visible,.bom .item:focus-visible{outline:2px solid var(--gold-500); outl
       <div class="lbl">Brew guide</div>
       <p>1 tsp per cup &middot; 100&deg;C &middot; steep 7–10 mins</p>
     </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<hr class="rule">
+
+<!-- ============ MAKING ============ -->
+<section class="wrap rise">
+  <div class="shead">
+    <h2>Making</h2>
+    <span class="eyebrow">How each piece is produced</span>
+    <span class="part">RCK &middot; 01–07</span>
+  </div>
+  <p class="note" style="margin-bottom:34px">Steps are numbered because the order matters: the inlay has to happen before the first firing, and the foil has to happen before the glue tab is folded.</p>
+
+  <div class="makes">
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 01</span>
+        <h3>Master carton</h3>
+        <div class="meta">Board converter &middot; 4 weeks &middot; MOQ 500</div>
+      </header>
+      <ol class="steps">
+        <li><b>Order the board through-dyed.</b> Night blue right through the sheet, 900 gsm, so a cut edge shows no white core.</li>
+        <li><b>Crease, then die-cut.</b> One steel rule die takes the whole prism and the single glue tab in one hit.</li>
+        <li><b>Foil in one pass.</b> Magnesium block at 160&deg;C. Medallion, engraving and product name all sit on the same block, so registration cannot drift between them.</li>
+        <li><b>Glue the tab flat.</b> Cartons ship flat and are folded at pack-down.</li>
+      </ol>
+      <div class="check">Checked for: foil catching light at 45&deg;, no cracking along the apex crease.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 02</span>
+        <h3>Blend sleeve</h3>
+        <div class="meta">Same converter &middot; 3 weeks &middot; MOQ 300 per blend</div>
+      </header>
+      <ol class="steps">
+        <li><b>Three board orders, one per tone.</b> Clay, oat and olive dyed to match the cup body, not to match the card.</li>
+        <li><b>Letterpress, night blue, one colour.</b> Deep bite so the botanical is felt as well as seen.</li>
+        <li><b>Cut from the same die family, scaled down.</b> The sleeve is the master carton at 71%.</li>
+        <li><b>Set the blend name in Cormorant at 0.14em.</b> Never bold, never tightened.</li>
+      </ol>
+      <div class="check">Checked for: board tone against a fired cup under warm light, not on screen.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 03</span>
+        <h3>Ritual cup</h3>
+        <div class="meta">Ceramicist &middot; 6 weeks &middot; expect 8–12% loss</div>
+      </header>
+      <ol class="steps">
+        <li><b>Colour the clay body itself.</b> Oxide goes into the slip so the tone is the material, not a coating that can chip.</li>
+        <li><b>Slip cast in a two-part plaster mould.</b> 78 &oslash; &times; 92 mm, walls at 5 mm.</li>
+        <li><b>Trim and sponge the rim at leather-hard.</b> The lip stays square, no bevel.</li>
+        <li><b>Press the debossing.</b> Botanical on the face, maker's mark on the base, both from bisque stamps.</li>
+        <li><b>Inlay the botanical in night blue slip.</b> Flood the deboss, let it stiffen, scrape flush. The base mark is left bare.</li>
+        <li><b>Bisque fire to 1000&deg;C.</b></li>
+        <li><b>Glaze the inside only.</b> Clear, poured in and out; wipe the outside back to bare stoneware.</li>
+        <li><b>Glost fire to 1240&deg;C.</b></li>
+      </ol>
+      <div class="check">Checked for: 280 ml filled to 8 mm below the rim, base flat on glass, no glaze crawl over the lip.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 04</span>
+        <h3>Gold infuser</h3>
+        <div class="meta">Metal supplier &middot; 8 weeks &middot; tooling on first order</div>
+      </header>
+      <ol class="steps">
+        <li><b>Etch the basket, do not punch it.</b> 304 stainless, 0.3 mm holes, etched so there are no burrs to catch leaf.</li>
+        <li><b>Gold PVD plate.</b> Plating rather than lacquer, so it holds up to boiling water and daily washing.</li>
+        <li><b>Cast the handle and enamel it night blue.</b> Fired enamel, one dip.</li>
+        <li><b>Size the rim to the cup.</b> The basket seats on the 78 mm lip and stands alone, so no lid is needed.</li>
+      </ol>
+      <div class="check">Checked for: seats without rocking, handle stays cool through a 10 minute steep.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 05</span>
+        <h3>Name coaster</h3>
+        <div class="meta">Same ceramicist &middot; runs with the cup</div>
+      </header>
+      <ol class="steps">
+        <li><b>Press-mould from the cup's own clay.</b> Trimmings from casting are reclaimed into the tiles, so tone matches by default.</li>
+        <li><b>Stamp the blend name at leather-hard and inlay it navy.</b> Same slip as the cup botanical.</li>
+        <li><b>Single bisque only, no glaze.</b> Bare stoneware grips the cup and takes the heat.</li>
+        <li><b>Glue on 3 mm cork feet after firing.</b></li>
+      </ol>
+      <div class="check">Checked for: tile sits flat, name legible at arm's length.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 06</span>
+        <h3>Oak tray</h3>
+        <div class="meta">Joiner &middot; 3 weeks</div>
+      </header>
+      <ol class="steps">
+        <li><b>Quarter-sawn solid oak, grain running long.</b> No veneer, no ply.</li>
+        <li><b>CNC the recess 4 mm deep, corners at radius 6.</b></li>
+        <li><b>Hand sand 180 then 240.</b> Arris the top edge lightly by hand.</li>
+        <li><b>Two coats of hard wax oil, no stain.</b> The oak is left to darken on its own.</li>
+      </ol>
+      <div class="check">Checked for: no tear-out at the recess corners, oil cured before it meets the board.</div>
+    </article>
+
+    <article class="make">
+      <header>
+        <span class="part">RCK · 07</span>
+        <h3>Product card</h3>
+        <div class="meta">Existing print &middot; reorder only</div>
+      </header>
+      <ol class="steps">
+        <li><b>Reprint the existing artwork unchanged.</b> 350 gsm aged cream, letterpress, no reset and no new copy.</li>
+        <li><b>Trim to 90 &times; 130 mm</b> so it stands inside the sleeve rather than lying under the cup.</li>
+      </ol>
+      <div class="check">Checked for: house spellings held — Cats Claw, Licorice Root, defences.</div>
+    </article>
+
+    <article class="make wide">
+      <header>
+        <span class="part">RCK · pack</span>
+        <h3>Pack-down</h3>
+        <div class="meta">In house &middot; roughly 4 minutes a kit</div>
+      </header>
+      <ol class="steps">
+        <li><b>Fold the carton and drop in the cream fluting.</b></li>
+        <li><b>Cup first, upright, botanical facing the front panel.</b> Infuser nests inside the cup, handle to the left.</li>
+        <li><b>Coaster flat against the base, card slid down the front face.</b></li>
+        <li><b>Sleeved blend last, sitting in the apex.</b> Tissue over, ribbon pull left long enough to reach the tuck.</li>
+        <li><b>Tray ships separately.</b> It does not fit the prism and is not part of the boxed kit.</li>
+      </ol>
+      <div class="check">Checked for: nothing rattles when the carton is turned on its side.</div>
+    </article>
+
   </div>
 </section>
 
